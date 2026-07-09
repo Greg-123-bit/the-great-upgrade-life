@@ -1,0 +1,134 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #0A0C0E}
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Mobile positioning fixes for the upgrade capsule */
+@media (max-width: 720px) {
+  .poster-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    display: inline-block !important;
+    box-sizing: border-box !important;
+  }
+
+  .poster-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    display: inline-block !important;
+    box-sizing: border-box !important;
+  }
+
+  .gu-interactive {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(calc(-3.2vw - 2px)) !important;
+    width: 90% !important;
+    top: auto !important;
+    /* moved upward on mobile only */
+    bottom: 70.6% !important;
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    z-index: 2000 !important; 
+  }
+
+  /* keep the capsule visually identical but slightly smaller on narrow screens */
+  .gu-interactive .outerGlowCapsule {
+    background: transparent !important;
+    height: auto !important;
+    min-height: 34px !important;
+    border-radius: 10px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .gu-interactive .coreLayout {
+    height: 28px !important;
+    min-height: 28px !important;
+    padding: 1px 4px !important;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .gu-interactive .innerBevelLayer {
+    padding: 1px !important;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
+  }
+
+  .gu-interactive .verticalDivider {
+    display: none !important;
+  }
+
+  /* prevent the input from wrapping below the button */
+  .gu-interactive .recessedInputBox {
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 28px !important;
+    padding: 0 6px !important;
+  }
+
+  .gu-interactive .recessedInputBox input {
+    font-size: 8px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .gu-interactive .chiseledGoldBtn {
+    flex: 0 0 auto !important;
+    width: max-content !important;
+    height: 28px !important;
+    font-size: 7.5px !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+    white-space: nowrap !important;
+  }
+
+  /* Reduce branding size/spacing so title doesn't feel too large */
+  .gu-interactive .brandBox h2 {
+    font-size: 8.5px !important;
+    line-height: 1.1 !important;
+    margin-bottom: 2px !important;
+  }
+
+  .gu-interactive .brandBox p {
+    font-size: 6px !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+    letter-spacing: 1.6px !important;
+  }
+
+  .gu-interactive .brandBox {
+    padding-left: 3px !important;
+    flex-shrink: 0 !important;
+    margin-right: 4px !important;
+    width: 85px !important;
+    max-width: 85px !important;
+    white-space: normal !important;
+  }
+
+  /* reduce icon spacing to free a few pixels */
+  .gu-interactive .recessedInputBox svg {
+    margin-right: 5px !important;
+    width: 16px !important;
+    height: 12px !important;
+  }
+}

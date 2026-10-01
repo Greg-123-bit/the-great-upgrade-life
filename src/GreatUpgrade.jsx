@@ -215,7 +215,7 @@ const styles = {
     background: "transparent",
     border: "none",
     outline: "none",
-    color: "#ffffff",
+    color: "black",
     fontWeight: "400",
     height: "100%",
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",

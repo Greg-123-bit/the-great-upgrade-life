@@ -65,7 +65,7 @@ html, body {
 .gu-btn-text {
   display: inline-flex;
   align-items: center;
-  justifyContent: center;
+  justify-content: center;
   white-space: nowrap;
   pointer-events: none;
 }
@@ -131,3 +131,29 @@ html, body {
   opacity: 0.85;
 }
 
+/* ── Input Text Color & Autofill Fix ── */
+.gu-email-input {
+  background: transparent !important;
+  color: #ffffff !important;                 /* <-- Text ko white karega */
+  -webkit-text-fill-color: #ffffff !important; /* <-- Chrome / Safari mein black text ko theek karega */
+  caret-color: #cfa751 !important;           /* <-- Blinking cursor ko Gold karega */
+}
+
+.gu-email-input:focus {
+  background: transparent !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  outline: none !important;
+}
+
+/* Jab browser email autofill kare toh background white na ho */
+.gu-email-input:-webkit-autofill,
+.gu-email-input:-webkit-autofill:hover,
+.gu-email-input:-webkit-autofill:focus,
+.gu-email-input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #090c0f inset !important;
+  box-shadow: 0 0 0 1000px #090c0f inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}

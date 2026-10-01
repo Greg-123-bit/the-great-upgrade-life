@@ -93,9 +93,9 @@ export default function GreatUpgrade() {
 
       {/* ── Section 4: YouTube Videos — full width stacked ── */}
       <div style={styles.videosSection} className="gu-section">
-      {[
-          "CHYHB4C1gkg",   // <-- Yahan replace kar dein
-          "PdRrzV0SADg",
+        {[
+          "O12p74cOah4",
+          "CHYHB4C1gkg",
           "yI4lYjvxpjA",
         ].map((id) => (
           <div key={id} style={styles.videoCard}>

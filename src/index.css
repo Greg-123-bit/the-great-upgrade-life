@@ -9,7 +9,8 @@ html, body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  background: #0A0C0E}
+  background: #0A0C0E;
+}
 
 #root {
   margin: 0;
@@ -17,118 +18,116 @@ html, body {
   width: 100%;
 }
 
-/* Mobile positioning fixes for the upgrade capsule */
-@media (max-width: 720px) {
-  .poster-wrapper {
-    position: relative !important;
-    width: 100% !important;
-    display: inline-block !important;
-    box-sizing: border-box !important;
-  }
+/* ── Responsive container width ── */
+.gu-section {
+  width: 80%;
+  max-width: 1400px;
+}
 
-  .poster-wrapper {
-    position: relative !important;
-    width: 100% !important;
-    display: inline-block !important;
-    box-sizing: border-box !important;
-  }
-
-  .gu-interactive {
-    position: absolute !important;
-    left: 50% !important;
-    transform: translateX(-50%) translateY(calc(-3.2vw - 2px)) !important;
-    width: 90% !important;
-    top: auto !important;
-    /* moved upward on mobile only */
-    bottom: 70.6% !important;
-    margin: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-left: 4px !important;
-    padding-right: 4px !important;
-    z-index: 2000 !important; 
-  }
-
-  /* keep the capsule visually identical but slightly smaller on narrow screens */
-  .gu-interactive .outerGlowCapsule {
-    background: transparent !important;
-    height: auto !important;
-    min-height: 34px !important;
-    border-radius: 10px !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-  }
-
-  .gu-interactive .coreLayout {
-    height: 28px !important;
-    min-height: 28px !important;
-    padding: 1px 4px !important;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
-    flex-wrap: nowrap !important;
-  }
-
-  .gu-interactive .innerBevelLayer {
-    padding: 1px !important;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%) !important;
-  }
-
-  .gu-interactive .verticalDivider {
-    display: none !important;
-  }
-
-  /* prevent the input from wrapping below the button */
-  .gu-interactive .recessedInputBox {
-    flex: 1 1 auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    height: 28px !important;
-    padding: 0 6px !important;
-  }
-
-  .gu-interactive .recessedInputBox input {
-    font-size: 8px !important;
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-
-  .gu-interactive .chiseledGoldBtn {
-    flex: 0 0 auto !important;
-    width: max-content !important;
-    height: 28px !important;
-    font-size: 7.5px !important;
-    padding: 0 4px !important;
-    box-sizing: border-box !important;
-    white-space: nowrap !important;
-  }
-
-  /* Reduce branding size/spacing so title doesn't feel too large */
-  .gu-interactive .brandBox h2 {
-    font-size: 8.5px !important;
-    line-height: 1.1 !important;
-    margin-bottom: 2px !important;
-  }
-
-  .gu-interactive .brandBox p {
-    font-size: 6px !important;
-    line-height: 1.1 !important;
-    margin: 0 !important;
-    letter-spacing: 1.6px !important;
-  }
-
-  .gu-interactive .brandBox {
-    padding-left: 3px !important;
-    flex-shrink: 0 !important;
-    margin-right: 4px !important;
-    width: 85px !important;
-    max-width: 85px !important;
-    white-space: normal !important;
-  }
-
-  /* reduce icon spacing to free a few pixels */
-  .gu-interactive .recessedInputBox svg {
-    margin-right: 5px !important;
-    width: 16px !important;
-    height: 12px !important;
+@media (max-width: 768px) {
+  .gu-section {
+    width: 94%;
   }
 }
+
+@media (max-width: 480px) {
+  .gu-section {
+    width: 98%;
+  }
+}
+
+/* ── Interactive states & responsive refinements for signup row ── */
+.gu-input-wrapper {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gu-input-wrapper:focus-within {
+  border-color: #cfa751 !important;
+  box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.95), 0 0 10px rgba(207, 167, 81, 0.35) !important;
+}
+
+.gu-submit-btn {
+  font-size: clamp(12px, 1.05vw, 15px);
+  letter-spacing: 0.8px;
+  transition: filter 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease !important;
+}
+
+.gu-submit-btn:hover {
+  filter: brightness(1.18);
+  box-shadow: 0 0 14px rgba(239, 186, 75, 0.45);
+}
+
+.gu-submit-btn:active {
+  transform: scale(0.98);
+  filter: brightness(0.92);
+}
+
+.gu-btn-text {
+  display: inline-flex;
+  align-items: center;
+  justifyContent: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ── Granular responsive typography for the button & input ── */
+@media (max-width: 1024px) {
+  .gu-submit-btn {
+    font-size: clamp(11.5px, 1.35vw, 13.5px) !important;
+    letter-spacing: 0.65px !important;
+  }
+  .gu-email-input {
+    font-size: clamp(11.5px, 1.35vw, 13.5px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gu-submit-btn {
+    font-size: clamp(10.5px, 1.85vw, 12.5px) !important;
+    letter-spacing: 0.5px !important;
+    padding: 0 3px !important;
+  }
+  .gu-email-input {
+    font-size: clamp(10.5px, 1.85vw, 12.5px) !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .gu-submit-btn {
+    font-size: clamp(8.5px, 1.9vw, 10.6px) !important;
+    letter-spacing: 0.25px !important;
+    padding: 0 2px !important;
+  }
+  .gu-email-input {
+    font-size: clamp(8.5px, 1.9vw, 10.6px) !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .gu-submit-btn {
+    font-size: clamp(7.8px, 2.3vw, 9.6px) !important;
+    letter-spacing: 0.25px !important;
+    padding: 0 2px !important;
+  }
+  .gu-email-input {
+    font-size: clamp(7.8px, 2.3vw, 9.6px) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .gu-submit-btn {
+    font-size: clamp(6.8px, 2.25vw, 8px) !important;
+    letter-spacing: 0.15px !important;
+    padding: 0 1px !important;
+  }
+  .gu-email-input {
+    font-size: clamp(6.8px, 2.25vw, 8px) !important;
+  }
+}
+
+.gu-email-input::placeholder {
+  color: #7b7f87;
+  font-size: inherit;
+  opacity: 0.85;
+}
+

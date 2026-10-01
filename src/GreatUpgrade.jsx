@@ -95,7 +95,7 @@ export default function GreatUpgrade() {
       <div style={styles.videosSection} className="gu-section">
         {[
           "O12p74cOah4",
-          "PdRrzV0SADg",
+          "j3k6rP3gbNmksEfH",
           "yI4lYjvxpjA",
         ].map((id) => (
           <div key={id} style={styles.videoCard}>

@@ -1,32 +1,13 @@
 import { useState } from "react";
 
-const GOOGLE_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeb-WrttromKcSiDPInj9B-aoc8sHn-9hFP62B56oNXQD2zJg/formResponse";
-const EMAIL_ENTRY_ID = "entry.1646219683";
+const MAILERLITE_FORM_URL =
+  "https://assets.mailerlite.com/jsonp/1843389/forms/200759700290012407/subscribe";
 
 export default function GreatUpgrade() {
   const [email, setEmail] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!email) return;
-
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = GOOGLE_FORM_URL;
-    form.target = "hidden_iframe";
-
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.name = EMAIL_ENTRY_ID;
-    input.value = email;
-
-    form.appendChild(input);
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-
+  function handleSubmit() {
     setTimeout(() => {
       setEmail("");
       setShowSuccess(true);
@@ -46,7 +27,15 @@ export default function GreatUpgrade() {
 
         {/* Overlay form centered on the input + button area */}
         <div style={styles.formOverlay}>
-          <form onSubmit={handleSubmit} style={styles.formRow}>
+          <form
+            action={MAILERLITE_FORM_URL}
+            method="POST"
+            target="hidden_iframe"
+            onSubmit={handleSubmit}
+            style={styles.formRow}
+          >
+            <input type="hidden" name="ml-submit" value="1" />
+            <input type="hidden" name="anticsrf" value="true" />
             {/* Email Input */}
             <div style={styles.inputWrapper} className="gu-input-wrapper">
               {/* Mail icon */}
@@ -66,6 +55,7 @@ export default function GreatUpgrade() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                name="fields[email]"
                 placeholder="Enter Your Email Address"
                 style={styles.emailInput}
                 className="gu-email-input"
